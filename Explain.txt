@@ -1,0 +1,9 @@
+Below are the Steps we can follow for the Cost Optimization Challenge :-
+
+Step 1:-Archive Old Records: Move records older than three months to Azure Blob Storage to reduce the size and cost of your Cosmos DB.
+
+Step 2:-Create a Hybrid Access Layer: Develop a service that can retrieve data from both Cosmos DB and Blob Storage without changing your existing APIs.
+
+Step3:-Update Read Logic: Adjust your read operations to first check Cosmos DB. If the data isn't there, then fetch it from Blob Storage.
+
+Step4:-Automate Archiving: Set up a scheduled task to regularly move old records from Cosmos DB to Blob Storage.
