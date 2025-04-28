@@ -84,3 +84,6 @@ func azure functionapp publish <your-function-app-name>
 COSMOS_ENDPOINT
 COSMOS_KEY
 BLOB_CONNECTION_STRING
+
+
+I utilized GitHub Copilot to assist in generating the solution for the  project. The tool provided code suggestions and helped streamline the development process, ensuring that the solution met the specified requirements efficiently.
