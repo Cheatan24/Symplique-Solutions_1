@@ -27,3 +27,60 @@ Deployment:-
 1. Deploy the archiving function to Azure Functions.
 2.Deploy the hybrid storage access layer as part of your existing service.
 3.Schedule the archiving function to run periodically using Azure Logic Apps or Azure Functions Timer Trigger.
+
+******************************************************************************************************
+1. Data Archival
+Function: archive_old_records
+
+Initialize Cosmos DB client
+Initialize Blob Storage client
+
+Define function archive_old_records:
+    Query Cosmos DB for records older than 3 months
+    For each record in the query result:
+        Convert record to JSON
+        Upload JSON to Blob Storage
+        Delete record from Cosmos DB
+2. Data Retrieval
+Function: get_record
+Initialize Cosmos DB client
+Initialize Blob Storage client
+
+Define function get_record(record_id):
+    Try to read record from Cosmos DB
+    If record is found:
+        Return record
+    Else:
+        Try to read record from Blob Storage
+        If record is found:
+            Return record
+        Else:
+            Return "Record not found"
+
+Cost Optimization Strategies:-
+1.Tiered Storage: Use Azure Blob Storage for older records to reduce costs.
+2.Scheduled Archival: Automate the archival process using Azure Functions or Logic Apps to periodically move old records.
+3.Hybrid Access Layer: Implement a service that can fetch records from both Cosmos DB and Blob Storage seamlessly.
+
+
+Deployment steps : 
+Steps:-
+
+1.Initialize Terraform:
+
+terraform init
+
+2. Apply the Configuration:
+
+terraform apply
+
+3.Deploy the Python Function:
+
+func azure functionapp publish <your-function-app-name>
+
+
+4.Set Environment Variables:
+
+COSMOS_ENDPOINT
+COSMOS_KEY
+BLOB_CONNECTION_STRING
