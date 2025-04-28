@@ -7,3 +7,23 @@ Step 2:-Create a Hybrid Access Layer: Develop a service that can retrieve data f
 Step3:-Update Read Logic: Adjust your read operations to first check Cosmos DB. If the data isn't there, then fetch it from Blob Storage.
 
 Step4:-Automate Archiving: Set up a scheduled task to regularly move old records from Cosmos DB to Blob Storage.
+*****************************************************************************************************************************************************************************
+Detailed Implement : -
+Step 1: Identify and Archive Old Records
+Create a function to move records older than three months to Azure Blob Storage.
+
+Step 2: Implement a Hybrid Storage Access Layer
+Create a service to fetch records from both Cosmos DB and Blob Storage.
+
+Step 3: Update the Read Logic
+Modify your existing read logic to use the BillingRecordService.
+
+Step 4: Automate the Archiving Process
+Set up a scheduled job using Azure Functions or Azure Logic Apps to periodically move old records.
+
+********************************************************************************************************************************************************************************
+
+Deployment:-
+1. Deploy the archiving function to Azure Functions.
+2.Deploy the hybrid storage access layer as part of your existing service.
+3.Schedule the archiving function to run periodically using Azure Logic Apps or Azure Functions Timer Trigger.
